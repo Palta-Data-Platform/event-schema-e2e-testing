@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13cc62c4-6f31-405d-a13a-6342ade393f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ArtifactsMatcher.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/EventsChecker.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/SnowflakeConnector.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/StringExtension.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/TestCaseCheckWorkflow.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/TestCaseResult.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/TestDataDownloader.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/TestResultSaver.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/TestStartData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/TestStartDataWriter.kt" afterDir="false" />
-    </list>
+    <list default="true" id="13cc62c4-6f31-405d-a13a-6342ade393f5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
