@@ -1,0 +1,48 @@
+import java.sql.ResultSet
+
+class EventsChecker(private val snowflakeConnector: SnowflakeConnector) {
+    fun check(testCase: TestCaseEvent): TestCaseRun {
+        val resultSet = snowflakeConnector.runQuery(testCase.name, testCase.timestamp)
+
+        if (!resultSet.next()) {
+            return  TestCaseRun(TestCaseResult.NOT_FOUND, testCase.name)
+        }
+
+        if (
+            resultSet.getString("") != testCase.sdkName
+            || resultSet.getString("") != testCase.sdkVersion
+        ) {
+            return TestCaseRun(TestCaseResult.SDK_INFO_WRONG, testCase.name)
+        }
+
+        for ((key, value ) in testCase.eventProperties) {
+            if (!checkProperty(key, value, resultSet)) {
+                return TestCaseRun(TestCaseResult.EVENT_PROPERTY_WRONG, testCase.name)
+            }
+        }
+
+        for ((key, value ) in testCase.contextProperties) {
+            if (!checkProperty("c_$key", value, resultSet)) {
+                return TestCaseRun(TestCaseResult.CONTEXT_PROPERTY_WRONG, testCase.name)
+            }
+        }
+
+        for ((key, value ) in testCase.headerProperties) {
+            if (!checkProperty("h_$key", value, resultSet)) {
+                return TestCaseRun(TestCaseResult.HEADER_PROPERTY_WRONG, testCase.name)
+            }
+        }
+
+        return TestCaseRun(TestCaseResult.OK, testCase.name)
+    }
+
+    private fun checkProperty(name: String, value: Any, resultSet: ResultSet): Boolean {
+        if (value is String) {
+            return resultSet.getString(name) == value
+        } else if (value is Int) {
+            return  resultSet.getInt(name) == value
+        } else {
+            return false
+        }
+    }
+}
