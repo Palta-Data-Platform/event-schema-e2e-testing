@@ -13,10 +13,11 @@ repositories {
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     implementation 'com.google.code.gson:gson:2.10.1'
-}
-
-test {
-    useJUnitPlatform()
+    implementation 'net.snowflake:snowflake-jdbc:3.14.0'
+    implementation 'org.slf4j:jcl-over-slf4j:1.7.25'
+    implementation 'org.slf4j:jul-to-slf4j:1.7.25'
+    implementation 'org.slf4j:log4j-over-slf4j:1.7.25'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
 }
 
 compileKotlin {
