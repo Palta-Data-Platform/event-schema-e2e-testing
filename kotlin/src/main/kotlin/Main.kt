@@ -3,7 +3,7 @@ fun main(args: Array<String>) {
     val nextArgs = args.drop(1)
 
     if (action == "save") {
-        TestStartDataWriter().writeTestData(nextArgs)
+        TestStartDataWriter(TestDataParser()).writeTestData(nextArgs)
     } else if (action == "test") {
         test(nextArgs)
     } else {
