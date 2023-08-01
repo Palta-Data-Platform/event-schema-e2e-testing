@@ -114,7 +114,7 @@ case "$( uname )" in                #(
   NONSTOP* )        nonstop=true ;;
 esac
 
-CLASSPATH=$APP_HOME/lib/SnowflakeChecker-1.0-SNAPSHOT.jar:$APP_HOME/lib/kotlin-stdlib-jdk8-1.8.21.jar:$APP_HOME/lib/gson-2.10.1.jar:$APP_HOME/lib/kotlin-stdlib-jdk7-1.8.21.jar:$APP_HOME/lib/kotlin-stdlib-1.8.21.jar:$APP_HOME/lib/kotlin-stdlib-common-1.8.21.jar:$APP_HOME/lib/annotations-13.0.jar
+CLASSPATH=$APP_HOME/lib/SnowflakeChecker-1.0-SNAPSHOT.jar:$APP_HOME/lib/kotlin-stdlib-jdk8-1.8.21.jar:$APP_HOME/lib/gson-2.10.1.jar:$APP_HOME/lib/snowflake-jdbc-3.14.0.jar:$APP_HOME/lib/jcl-over-slf4j-1.7.25.jar:$APP_HOME/lib/jul-to-slf4j-1.7.25.jar:$APP_HOME/lib/log4j-over-slf4j-1.7.25.jar:$APP_HOME/lib/slf4j-api-1.7.25.jar:$APP_HOME/lib/kotlin-stdlib-jdk7-1.8.21.jar:$APP_HOME/lib/kotlin-stdlib-1.8.21.jar:$APP_HOME/lib/kotlin-stdlib-common-1.8.21.jar:$APP_HOME/lib/annotations-13.0.jar
 
 
 # Determine the Java command to use to start the JVM.
