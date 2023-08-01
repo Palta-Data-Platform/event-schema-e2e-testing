@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13cc62c4-6f31-405d-a13a-6342ade393f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/GithubWorkflowStarter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EventsChecker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EventsChecker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/SnowflakeConnector.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SnowflakeConnector.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TestCaseCheckWorkflow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TestCaseCheckWorkflow.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TestDataParser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TestDataParser.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,0 +1,40 @@
+name: Build executable
+on:
+  workflow_dispatch:
+    inputs:
+      sdkName:
+        required: true
+        type: string
+      sdkVersion:
+        required: true
+        type: string
+      nextAction:
+        required: true
+        type: string
+      eventTimes:
+        required: true
+        type: string
+      eventNames:
+        required: true
+        type: string
+      eventProperties:
+        required: true
+        type: string
+      eventHeaders:
+        required: true
+        type: string
+      eventContexts:
+        required: true
+        type: string
+    secrets:
+      gihubToken:
+        required: true
+jobs:
+  pack-events:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Pack events in json
+      run: |
+        ./compiled/bin/SnowflakeChecker save ${{ inputs.sdkName }} ${{ event.sdkVersion }} ${{ event.nextAction }} ${{ event.eventTimes }} ${{ event.eventNames }} ${{ event.eventProperties }} ${{ event.eventHeaders }} ${{ event.eventContexts }}
+        ls -a compiled
+        ls -a compiled/bin
