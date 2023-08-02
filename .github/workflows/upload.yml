@@ -33,8 +33,13 @@ jobs:
   pack-events:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - name: Pack events in json
       run: |
-        ./compiled/bin/SnowflakeChecker save ${{ inputs.sdkName }} ${{ inputs.sdkVersion }} ${{ inputs.nextAction }} ${{ inputs.eventTimes }} ${{ inputs.eventNames }} ${{ inputs.eventProperties }} ${{ inputs.eventHeaders }} ${{ inputs.eventContexts }}
-        ls -a compiled
-        ls -a compiled/bin
+        compiled/bin/SnowflakeChecker save ${{ inputs.sdkName }} ${{ inputs.sdkVersion }} ${{ inputs.nextAction }} ${{ inputs.eventTimes }} ${{ inputs.eventNames }} ${{ inputs.eventProperties }} ${{ inputs.eventHeaders }} ${{ inputs.eventContexts }}
+        filename=$(find . -type f -name "test-start-*" | sed 's/^.\///')
+        echo "artifact_name=$filename" >> "$GITHUB_ENV"
+    - uses: actions/upload-artifact@v3
+      with:
+        path: test-start-*
+        name: ${{ env.artifact_name }}
