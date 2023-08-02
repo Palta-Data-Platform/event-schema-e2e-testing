@@ -1,4 +1,4 @@
-name: Build executable
+name: Save test start
 on:
   workflow_dispatch:
     inputs:
@@ -35,6 +35,6 @@ jobs:
     steps:
     - name: Pack events in json
       run: |
-        ./compiled/bin/SnowflakeChecker save ${{ inputs.sdkName }} ${{ event.sdkVersion }} ${{ event.nextAction }} ${{ event.eventTimes }} ${{ event.eventNames }} ${{ event.eventProperties }} ${{ event.eventHeaders }} ${{ event.eventContexts }}
+        ./compiled/bin/SnowflakeChecker save ${{ inputs.sdkName }} ${{ inputs.sdkVersion }} ${{ inputs.nextAction }} ${{ inputs.eventTimes }} ${{ inputs.eventNames }} ${{ inputs.eventProperties }} ${{ inputs.eventHeaders }} ${{ inputs.eventContexts }}
         ls -a compiled
         ls -a compiled/bin
