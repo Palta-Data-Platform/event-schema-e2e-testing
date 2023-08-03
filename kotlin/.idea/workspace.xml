@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="13cc62c4-6f31-405d-a13a-6342ade393f5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ArtifactsMatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ArtifactsMatcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EventsChecker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EventsChecker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TestCaseResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TestCaseResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TestDataDownloader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TestDataDownloader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TestResultSaver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TestResultSaver.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +90,7 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/vyacheslav/xcode/SnowflakeChecker/kotlin&quot;
   }
 }</component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Kotlin.MainKt-Test">
     <configuration name="SnowflakeChecker [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -107,7 +113,7 @@
       <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="MainKt-Save" type="JetRunConfigurationType">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="SnowflakeChecker.main" />
       <option name="PROGRAM_PARAMETERS" value="save PALTABRAIN_IOS 3.6.2 finish_release 1686230423 1686000000 EdgeCase EdgeCase2 {&quot;prop_enum&quot;:&quot;RESULT_ERROR&quot;} {&quot;prop_boolean&quot;:true} {} {&quot;x&quot;:8} {} {}" />
@@ -117,13 +123,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt-Test" type="JetRunConfigurationType">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <module name="SnowflakeChecker.main" />
+      <option name="PROGRAM_PARAMETERS" value="test Palta-Data-Platform event-schema-e2e-testing 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 private.pem vyacheslav.beltyukov@palta.com mobilesdk" />
+      <shortenClasspath name="NONE" />
+      <option name="VM_PARAMETERS" value="--add-opens=java.base/java.nio=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Gradle.SnowflakeChecker [dependencies]" />
-      <item itemvalue="Kotlin.MainKt" />
+      <item itemvalue="Kotlin.MainKt-Save" />
+      <item itemvalue="Kotlin.MainKt-Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.SnowflakeChecker [dependencies]" />
       </list>
     </recent_temporary>
@@ -162,6 +178,11 @@
           <url>file://$PROJECT_DIR$/src/main/kotlin/TestDataParser.kt</url>
           <line>13</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/TestCaseCheckWorkflow.kt</url>
+          <line>16</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -10,22 +10,22 @@ class ArtifactsMatcher {
                 continue
             }
 
-            name.removePrefix("test-")
+            name = name.removePrefix("test-")
 
             if (name.startsWith("start-")) {
-                name.removePrefix("start-")
+                name = name.removePrefix("start-")
                 val time = name.toIntOrNull() ?: continue
 
-                if (outcomingMap[time] != null) {
+                if (outcomingMap.containsKey(time)) {
                     outcomingMap.remove(time)
                 } else {
                     incomingMap[time] = artifact
                 }
             } else if (name.startsWith("finish-")) {
-                name.removePrefix("finish-")
+                name = name.removePrefix("finish-")
                 val time = name.toIntOrNull() ?: continue
 
-                if (incomingMap[time] != null) {
+                if (incomingMap.containsKey(time)) {
                     incomingMap.remove(time)
                 } else {
                     outcomingMap[time] = artifact
@@ -33,6 +33,6 @@ class ArtifactsMatcher {
             }
         }
 
-        return outcomingMap.values.toTypedArray()
+        return incomingMap.values.toTypedArray()
     }
 }

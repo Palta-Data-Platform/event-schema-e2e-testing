@@ -6,6 +6,9 @@ class TestResultSaver {
         val gson = Gson()
         val filePath = "${artifact.name.replace("start", "finish")}.json"
 
-        gson.toJson(results, FileWriter(filePath))
+        val fileWriter = FileWriter(filePath)
+        gson.toJson(results, fileWriter)
+        fileWriter.flush()
+        fileWriter.close()
     }
 }

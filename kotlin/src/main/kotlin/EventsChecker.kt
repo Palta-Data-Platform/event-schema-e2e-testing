@@ -1,11 +1,18 @@
+import net.snowflake.client.jdbc.SnowflakeSQLException
 import java.sql.ResultSet
 
 class EventsChecker(private val snowflakeConnector: SnowflakeConnector) {
     fun check(testCase: TestCaseEvent): TestCaseRun {
-        val resultSet = snowflakeConnector.runQuery(testCase.name, testCase.timestamp)
+        val resultSet: ResultSet
+
+        try {
+            resultSet = snowflakeConnector.runQuery(testCase.name, testCase.timestamp)
+        } catch (e: SnowflakeSQLException) {
+            return TestCaseRun(TestCaseResult.INCORRECT_QUERY, testCase.name)
+        }
 
         if (!resultSet.next()) {
-            return  TestCaseRun(TestCaseResult.NOT_FOUND, testCase.name)
+            return TestCaseRun(TestCaseResult.NOT_FOUND, testCase.name)
         }
 
         if (

@@ -31,10 +31,10 @@ private fun test(args: List<String>) {
     for (artifact in artifactsToTest) {
         TestCaseCheckWorkflow(
             artifact,
-            TestDataDownloader(),
+            TestDataDownloader(apiKey),
             snowflakeConnector,
             TestResultSaver(),
             GithubWorkflowStarter(repoName, repoOwner, apiKey)
-        )
+        ).start()
     }
 }
