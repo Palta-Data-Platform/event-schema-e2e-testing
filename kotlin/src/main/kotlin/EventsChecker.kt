@@ -3,13 +3,15 @@ import java.sql.ResultSet
 
 class EventsChecker(private val snowflakeConnector: SnowflakeConnector) {
     fun check(testCase: TestCaseEvent): TestCaseRun {
-        val resultSet: ResultSet
-
         try {
-            resultSet = snowflakeConnector.runQuery(testCase.name, testCase.timestamp)
+            return doCheck(testCase)
         } catch (e: SnowflakeSQLException) {
             return TestCaseRun(TestCaseResult.INCORRECT_QUERY, testCase.name)
         }
+    }
+
+    private fun doCheck(testCase: TestCaseEvent): TestCaseRun {
+        val resultSet = snowflakeConnector.runQuery(testCase.name, testCase.timestamp)
 
         if (!resultSet.next()) {
             return TestCaseRun(TestCaseResult.NOT_FOUND, testCase.name)
@@ -23,7 +25,7 @@ class EventsChecker(private val snowflakeConnector: SnowflakeConnector) {
         }
 
         for ((key, value ) in testCase.eventProperties) {
-            if (!checkProperty("p_$key`".uppercase(), value, resultSet)) {
+            if (!checkProperty("p_$key".uppercase(), value, resultSet)) {
                 return TestCaseRun(TestCaseResult.EVENT_PROPERTY_WRONG, testCase.name)
             }
         }
