@@ -17,7 +17,8 @@ jobs:
       run: |
         echo "${{ secrets.SNOWFLAKE_KEY }}" > snowflake.pem
         compiled/bin/SnowflakeChecker test ${{ github.event.repository.owner.login }} ${{ github.event.repository.name }} ${{ secrets.TOKEN_FOR_GITHUB }} snowflake.pem ${{ secrets.SNOWFLAKE_USER }} ${{ inputs.client }}
-        filename=$(find . -type f -name "test-finish-*" | sed 's/^.\///')
+        filename=$(find . -type f -name "test-finish-*" | sed 's/^.\///' | sed -n 1p)
+        echo $filename
         echo "artifact_name=$filename" >> "$GITHUB_ENV"
     - uses: actions/upload-artifact@v3
       with:
