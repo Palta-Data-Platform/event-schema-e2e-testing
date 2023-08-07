@@ -1,5 +1,6 @@
 import com.google.gson.Gson
 import org.slf4j.LoggerFactory
+import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
     val action = args[0]
@@ -26,15 +27,20 @@ private fun test(args: List<String>) {
     val artifacts = downloader.downloadArtifacts()
     val artifactsToTest = ArtifactsMatcher().unmatchedArtifacts(artifacts)
 
-    val snowflakeConnector = SnowflakeConnector(snowflakePrivateKeyPath, snowflakeUser, snowflakeClient)
-
-    for (artifact in artifactsToTest) {
-        TestCaseCheckWorkflow(
-            artifact,
+    if (artifactsToTest.isNotEmpty()) {
+        val snowflakeConnector = SnowflakeConnector(snowflakePrivateKeyPath, snowflakeUser, snowflakeClient)
+        val workflow = TestCaseCheckWorkflow(
+            artifactsToTest.first(),
             TestDataDownloader(apiKey),
             snowflakeConnector,
             TestResultSaver(),
             GithubWorkflowStarter(repoName, repoOwner, apiKey)
-        ).start()
+        )
+
+        val testSuccess = workflow.start()
+
+        if (!testSuccess) {
+            exitProcess(100)
+        }
     }
 }

@@ -5,7 +5,7 @@ class TestCaseCheckWorkflow(
     private val testResultSaver: TestResultSaver,
     private val workflowStarter: GithubWorkflowStarter
 ) {
-    fun start() {
+    fun start(): Boolean {
         val testStartData = downloader.downloadTestData(artifact)
         val checker = EventsChecker(snowflakeConnector)
         var results: MutableList<TestCaseRun> = mutableListOf()
@@ -15,10 +15,13 @@ class TestCaseCheckWorkflow(
         }
 
         testResultSaver.save(results, artifact)
+        val testSucceeded = results.all { it.result == TestCaseResult.OK }
 
-        if (results.all { it.result == TestCaseResult.OK }) {
+        if (testSucceeded) {
             println("All test cases passed for ${artifact.name}. Starting next action: ${testStartData.nextAction}")
             workflowStarter.startWorkflow(testStartData.nextAction, testStartData.sdkVersion)
         }
+
+        return testSucceeded
     }
 }
