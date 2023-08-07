@@ -16,14 +16,15 @@ jobs:
     - name: Pack events in json
       run: |
         echo "${{ secrets.SNOWFLAKE_KEY }}" > snowflake.pem
-        test_run_reslt=0
-        trap 'test_run_reslt=$?' ERR
+        set +e
         compiled/bin/SnowflakeChecker test ${{ github.event.repository.owner.login }} ${{ github.event.repository.name }} ${{ secrets.TOKEN_FOR_GITHUB }} snowflake.pem ${{ secrets.SNOWFLAKE_USER }} ${{ inputs.client }}
+        test_run_reslt=$?
         filename=$(find . -type f -name "test-finish-*" | sed 's/^.\///' | sed -n 1p)
         echo $filename
         echo "artifact_name=$filename" >> "$GITHUB_ENV"
         exit $test_run_reslt
     - uses: actions/upload-artifact@v3
+      if: always()
       with:
         path: ${{ env.artifact_name }}
         name: ${{ env.artifact_name }}
