@@ -4,7 +4,7 @@ import java.io.FileWriter
 class TestResultSaver {
     fun save(results: List<TestCaseRun>, artifact: GithubArtifact) {
         val gson = Gson()
-        val filePath = "${artifact.name.replace("start", "finish")}.json"
+        val filePath = "${artifact.name.replace("start", "finish")}"
 
         val fileWriter = FileWriter(filePath)
         gson.toJson(results, fileWriter)
