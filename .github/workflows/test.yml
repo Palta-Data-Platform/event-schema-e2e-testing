@@ -23,7 +23,7 @@ jobs:
         echo "artifact_name=$filename" >> "$GITHUB_ENV"
         exit $test_run_reslt
     - uses: actions/upload-artifact@v3
-      if: always()
+      if: ${{ env.artifact_name != null && env.artifact_name != '' }}
       with:
         path: ${{ env.artifact_name }}
         name: ${{ env.artifact_name }}
