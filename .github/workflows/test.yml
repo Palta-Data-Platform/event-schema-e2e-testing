@@ -1,18 +1,17 @@
 name: Perform e2e tests
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       client:
         required: true
         type: string
-    secrets:
-      gihubToken:
-        required: true
 jobs:
   e2e-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        repository: Palta-Data-Platform/event-schema-e2e-testing
     - name: Pack events in json
       run: |
         echo "${{ secrets.SNOWFLAKE_KEY }}" > snowflake.pem
