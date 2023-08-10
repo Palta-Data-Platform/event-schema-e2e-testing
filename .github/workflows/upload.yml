@@ -31,6 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        repository: Palta-Data-Platform/event-schema-e2e-testing
     - name: Pack events in json
       run: |
         compiled/bin/SnowflakeChecker save ${{ inputs.sdkName }} ${{ inputs.sdkVersion }} ${{ inputs.nextAction }} ${{ inputs.eventTimes }} ${{ inputs.eventNames }} ${{ inputs.eventProperties }} ${{ inputs.eventHeaders }} ${{ inputs.eventContexts }}
