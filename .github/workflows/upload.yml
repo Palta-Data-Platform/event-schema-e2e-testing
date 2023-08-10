@@ -1,6 +1,6 @@
 name: Save test start
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       sdkName:
         required: true
@@ -26,9 +26,6 @@ on:
       eventContexts:
         required: true
         type: string
-    secrets:
-      gihubToken:
-        required: true
 jobs:
   pack-events:
     runs-on: ubuntu-latest
