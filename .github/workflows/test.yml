@@ -30,7 +30,7 @@ jobs:
         echo ${{ env.artifact_name != '' }}
         echo ${{ env.artifact_name != null && env.artifact_name != '' }}
     - uses: actions/upload-artifact@v3
-      if: ${{ env.artifact_name != null && env.artifact_name != '' }}
+      if: ${{ always() }}
       with:
-        path: ${{ env.artifact_name }}
-        name: ${{ env.artifact_name }}
+        path: ${{ env.artifact_name || 'no-artifact' }}
+        name: ${{ env.artifact_name || 'no-artifact' }}
