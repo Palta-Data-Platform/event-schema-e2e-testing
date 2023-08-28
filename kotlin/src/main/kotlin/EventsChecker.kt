@@ -50,6 +50,8 @@ class EventsChecker(private val snowflakeConnector: SnowflakeConnector) {
             return resultSet.getString(name) == value
         } else if (value is Int) {
             return  resultSet.getInt(name) == value
+        } else if (value is Double) {
+            return resultSet.getInt(name) == value.toInt()
         } else if (value is Boolean) {
             return resultSet.getBoolean(name) == value
         } else {
